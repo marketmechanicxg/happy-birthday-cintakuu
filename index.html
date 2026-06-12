@@ -2,769 +2,359 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday, Cantikaa.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="A birthday wish written in starlight — made only for you." />
+  <meta name="theme-color" content="#030008" />
+  <title>Cantikaa. — happy birthday, you mean everything to me</title>
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/effects.css" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --deep: #06000f;
-      --violet: #7c4dff;
-      --pink: #e879a0;
-      --rose: #ff6b8a;
-      --gold: #f4c866;
-      --white: #fff;
-      --white60: rgba(255,255,255,0.6);
-      --white30: rgba(255,255,255,0.3);
-      --white10: rgba(255,255,255,0.08);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--deep);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    /* ── CANVAS ── */
-    #stars-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ── FLOATING PARTICLES ── */
-    .particles {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      animation: floatUp linear infinite;
-      opacity: 0;
-    }
-    @keyframes floatUp {
-      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.6; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-    }
-
-    /* ── MAIN ── */
-    main { position: relative; z-index: 1; }
-
-    section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: clamp(60px, 10vw, 100px) clamp(24px, 6vw, 80px);
-    }
-
-    /* ── PRELOADER ── */
-    #preloader {
-      position: fixed;
-      inset: 0;
-      background: var(--deep);
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
-    }
-    #preloader.hidden { opacity: 0; visibility: hidden; }
-
-    .preloader__heart {
-      font-size: 40px;
-      animation: heartbeat 1.2s ease-in-out infinite;
-      margin-bottom: 20px;
-      display: block;
-    }
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-    }
-    .preloader__text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(14px, 3vw, 18px);
-      color: var(--white60);
-      letter-spacing: 0.15em;
-      animation: fadeInOut 2s ease-in-out infinite;
-    }
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
-
-    /* ── HERO ── */
-    .hero { position: relative; }
-
-    .badge {
-      font-size: clamp(10px, 2vw, 12px);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(244,200,102,0.3);
-      padding: 8px 20px;
-      border-radius: 100px;
-      margin-bottom: 40px;
-      display: inline-block;
-      animation: fadeUp 1s ease 0.3s both;
-    }
-
-    .hero__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 10vw, 100px);
-      font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 32px;
-      animation: fadeUp 1s ease 0.5s both;
-    }
-    .hero__title em {
-      font-style: italic;
-      background: linear-gradient(135deg, var(--pink), var(--violet));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero__sub {
-      font-size: clamp(14px, 2.5vw, 18px);
-      color: var(--white60);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 56px;
-      animation: fadeUp 1s ease 0.7s both;
-    }
-
-    .hero__btns {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeUp 1s ease 0.9s both;
-    }
-
-    .btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      padding: 14px 32px;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      display: inline-block;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--pink), var(--violet));
-      color: var(--white);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,121,160,0.4); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--white60);
-      border: 1px solid var(--white30);
-    }
-    .btn-ghost:hover { border-color: var(--white60); color: var(--white); transform: translateY(-2px); }
-
-    /* candles row */
-    .candles {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 64px;
-      animation: fadeUp 1s ease 1.1s both;
-    }
-    .candle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-    .candle__flame {
-      width: 10px;
-      height: 18px;
-      background: radial-gradient(ellipse at 50% 80%, #ffdb4d, #ff9500 60%, transparent 100%);
-      border-radius: 50% 50% 30% 30%;
-      animation: flicker 1.5s ease-in-out infinite alternate;
-      position: relative;
-    }
-    .candle__flame::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 6px;
-      background: rgba(255,200,50,0.5);
-      border-radius: 50%;
-      filter: blur(3px);
-    }
-    @keyframes flicker {
-      0%   { transform: scaleX(1) scaleY(1) rotate(-2deg); opacity: 1; }
-      50%  { transform: scaleX(0.9) scaleY(1.1) rotate(1deg); opacity: 0.9; }
-      100% { transform: scaleX(1.05) scaleY(0.95) rotate(-1deg); opacity: 1; }
-    }
-    .candle__body {
-      width: 10px;
-      height: 36px;
-      background: linear-gradient(to bottom, #ffe0f0, #f4a0c0);
-      border-radius: 3px 3px 2px 2px;
-    }
-
-    /* ── BIRTHDAY SECTION ── */
-    .birthday { background: transparent; }
-
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 24px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.7s ease;
-    }
-    .section-label.visible { opacity: 1; transform: translateY(0); }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 7vw, 72px);
-      font-weight: 300;
-      line-height: 1.15;
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease 0.1s;
-    }
-    .section-title.visible { opacity: 1; transform: translateY(0); }
-    .section-title em { font-style: italic; color: var(--gold); }
-
-    .wish-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 860px;
-      width: 100%;
-      margin-top: 12px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease 0.2s;
-    }
-    .wish-cards.visible { opacity: 1; transform: translateY(0); }
-
-    .wish-card {
-      background: var(--white10);
-      border: 1px solid var(--white30);
-      border-radius: 20px;
-      padding: 28px 24px;
-      backdrop-filter: blur(10px);
-      text-align: left;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    .wish-card:hover { transform: translateY(-4px); border-color: rgba(232,121,160,0.5); }
-    .wish-card__icon { font-size: 28px; margin-bottom: 14px; display: block; }
-    .wish-card__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-    .wish-card__text { font-size: 13px; color: var(--white60); line-height: 1.7; }
-
-    /* ── CONFESSION SECTION ── */
-    .confession { }
-
-    .letter-wrap {
-      max-width: 660px;
-      width: 100%;
-      text-align: left;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.9s ease;
-    }
-    .letter-wrap.visible { opacity: 1; transform: translateY(0); }
-
-    .letter-paper {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 24px;
-      padding: clamp(32px, 5vw, 56px);
-      backdrop-filter: blur(16px);
-      position: relative;
-      overflow: hidden;
-    }
-    .letter-paper::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(124,77,255,0.15), transparent 70%);
-      pointer-events: none;
-    }
-    .letter-paper::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(232,121,160,0.12), transparent 70%);
-      pointer-events: none;
-    }
-
-    .letter-salutation {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(15px, 2.5vw, 18px);
-      font-style: italic;
-      color: var(--white60);
-      display: block;
-      margin-bottom: 28px;
-    }
-
-    .letter-body p {
-      font-size: clamp(14px, 2vw, 16px);
-      color: rgba(255,255,255,0.82);
-      line-height: 1.9;
-      margin-bottom: 22px;
-    }
-    .letter-body p:last-child { margin-bottom: 0; }
-    .letter-body strong { color: var(--white); font-weight: 500; }
-
-    .letter-sign {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(15px, 2.5vw, 18px);
-      font-style: italic;
-      color: var(--pink);
-      display: block;
-      margin-top: 32px;
-    }
-
-    /* ── FINALE ── */
-    .finale__heart {
-      font-size: 48px;
-      display: block;
-      margin-bottom: 28px;
-      animation: heartbeat 1.5s ease-in-out infinite;
-    }
-
-    .finale__quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 7vw, 72px);
-      font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-    .finale__quote em {
-      font-style: italic;
-      background: linear-gradient(135deg, var(--gold), var(--pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .finale__sub {
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--white30);
-      margin-bottom: 52px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 32px;
-      font-size: 12px;
-      color: var(--white30);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── ORBS ── */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--pink), transparent);
-      margin: 0 auto 36px;
-      opacity: 0;
-      transition: all 0.6s ease 0.15s;
-    }
-    .divider.visible { opacity: 1; }
-
-    /* ── SCROLL NAV ── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px clamp(24px, 5vw, 60px);
-      background: linear-gradient(to bottom, rgba(6,0,15,0.8), transparent);
-      backdrop-filter: blur(0px);
-    }
-    .nav__logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    .nav__links {
-      list-style: none;
-      display: flex;
-      gap: 32px;
-    }
-    .nav__links a {
-      color: var(--white60);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-    .nav__links a:hover { color: var(--white); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── CONFETTI ── */
-    .confetti-piece {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      top: -20px;
-      animation: confettiFall linear forwards;
-      opacity: 0;
-      z-index: 200;
-      pointer-events: none;
-    }
-    @keyframes confettiFall {
-      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .nav__links { display: none; }
-      .wish-cards { grid-template-columns: 1fr; }
-    }
+    /* Critical above-fold paint */
+    html { background: #030008; }
   </style>
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <span class="preloader__heart">♡</span>
-    <p class="preloader__text">preparing something just for you…</p>
+  <!-- ─── CURSOR ──────────────────────────────────────────── -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ─── FIXED LAYERS ────────────────────────────────────── -->
+  <canvas id="galaxy-canvas" aria-hidden="true"></canvas>
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ─── PRELOADER ───────────────────────────────────────── -->
+  <div id="preloader" role="progressbar" aria-label="Loading experience">
+    <div class="preloader__bg"></div>
+    <div class="preloader__rings">
+      <div class="preloader__ring-outer"></div>
+      <div class="preloader__ring-mid"></div>
+    </div>
+
+    <div class="preloader__content">
+      <span class="preloader__heart">♡</span>
+      <div class="preloader__ring" aria-hidden="true"></div>
+      <p class="preloader__quote"></p>
+      <div>
+        <div class="preloader__bar">
+          <div class="preloader__bar-fill"></div>
+        </div>
+        <span class="preloader__percent">0%</span>
+      </div>
+    </div>
   </div>
 
-  <!-- STARS -->
-  <canvas id="stars-canvas"></canvas>
-
-  <!-- FLOATING PARTICLES -->
-  <div class="particles" id="particles"></div>
-
-  <!-- NAV -->
-  <nav class="nav">
+  <!-- ─── NAVIGATION ──────────────────────────────────────── -->
+  <nav class="nav" aria-label="Main navigation">
     <a href="#hero" class="nav__logo">Cantikaa.</a>
-    <ul class="nav__links">
-      <li><a href="#birthday">Wishes</a></li>
-      <li><a href="#confession">Letter</a></li>
-      <li><a href="#finale">Ending</a></li>
+    <ul class="nav__links" role="list">
+      <li><a href="#timeline" class="hover-line">Story</a></li>
+      <li><a href="#gallery" class="hover-line">Gallery</a></li>
+      <li><a href="#love-letter" class="hover-line">Letter</a></li>
+      <li><a href="#finale" class="hover-line">Ending</a></li>
     </ul>
   </nav>
 
+  <!-- ─── NAV DOTS ─────────────────────────────────────────── -->
+  <nav class="nav-dots" aria-label="Section navigation"></nav>
+
+  <!-- ─── AUDIO PLAYER (injected by audio-system.js) ──────── -->
+
+  <!-- ════════════════════════════════════════════════════════
+       MAIN EXPERIENCE
+       ════════════════════════════════════════════════════════ -->
   <main>
 
-    <!-- ── HERO ── -->
-    <section class="hero" id="hero">
-      <div class="orb" style="width:500px;height:500px;background:rgba(124,77,255,0.18);top:-20%;right:-10%;"></div>
-      <div class="orb" style="width:400px;height:400px;background:rgba(232,121,160,0.14);bottom:0;left:-10%;"></div>
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero" data-scene="hero">
+      <div class="hero__particles" aria-hidden="true"></div>
 
-      <div class="badge">✦ June 12 ✦</div>
+      <div class="hero__inner">
+        <div class="hero__badge">
+          <span>A birthday confession, written just for you</span>
+        </div>
 
-      <h1 class="hero__title">
-        Happy Birthday,<br />
-        <em>Cantikaa.</em>
-      </h1>
+        <h1 class="hero__headline t-hero glow-text">
+          <span class="line">Happy birthday,</span>
+          <span class="line"><em>Cantika.</em></span>
+        </h1>
 
-      <p class="hero__sub">
-        Of all the days in a year, this one matters the most to me —
-        because it's the day the world got a little brighter.
-      </p>
+        <p class="hero__sub">
+          Today is yours. And somehow, out of all the days I could choose to say this —
+          I think this one fits just right.
+        </p>
 
-      <div class="hero__btns">
-        <a href="#birthday" class="btn btn-primary">See the Wishes</a>
-        <a href="#confession" class="btn btn-ghost">Read the Letter</a>
+        <div class="hero__cta">
+          <a href="#timeline" class="btn btn-primary" data-magnetic>
+            Open Your Gift
+          </a>
+          <a href="#love-letter" class="btn btn-ghost" data-magnetic>
+            Read the Letter
+          </a>
+        </div>
       </div>
 
-      <div class="candles" id="candles">
-        <!-- injected by JS -->
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-arrow"></div>
       </div>
+
+      <!-- Decorative orbs -->
+      <div class="orb-decoration orb-violet" style="width:600px;height:600px;top:-20%;right:-15%;opacity:0.5;"></div>
+      <div class="orb-decoration orb-pink" style="width:400px;height:400px;bottom:-10%;left:-8%;opacity:0.4;"></div>
     </section>
 
-    <!-- ── BIRTHDAY ── -->
-    <section class="birthday" id="birthday">
-      <div class="orb" style="width:600px;height:600px;background:rgba(232,121,160,0.1);top:10%;left:-15%;"></div>
+    <!-- ─── TIMELINE ──────────────────────────────────────── -->
+    <section class="timeline" id="timeline" data-scene="timeline">
+      <div class="section-number" aria-hidden="true">01</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            Things I never said out loud
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            The Things<br /><em style="font-style:italic;color:var(--clr-pink-soft);">I Felt</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            There are things you carry quietly for a long time.
+            Not because you don't mean them — but because some feelings take courage to say out loud. This is me, finally being brave.
+          </p>
+        </header>
 
-      <p class="section-label reveal">— section 01 —</p>
-      <div class="divider reveal"></div>
-      <h2 class="section-title reveal">
-        Everything I wish<br /><em>for you today</em>
-      </h2>
-
-      <div class="wish-cards reveal">
-
-        <div class="wish-card">
-          <span class="wish-card__icon">🌙</span>
-          <p class="wish-card__title">Nights that feel safe</p>
-          <p class="wish-card__text">I hope every evening finds you warm, unhurried, and at peace — the kind of night that makes you feel like the world is, quietly, on your side.</p>
+        <div class="timeline__inner">
+          <div class="timeline__glow-line" aria-hidden="true"></div>
+          <div class="timeline__items"></div>
+          <!-- Items injected by JS -->
         </div>
-
-        <div class="wish-card">
-          <span class="wish-card__icon">✨</span>
-          <p class="wish-card__title">The kind of joy that stays</p>
-          <p class="wish-card__text">Not the kind that depends on everything going right — but the quiet, steady kind that sits inside you and doesn't leave when things get hard.</p>
-        </div>
-
-        <div class="wish-card">
-          <span class="wish-card__icon">🌸</span>
-          <p class="wish-card__title">People who truly see you</p>
-          <p class="wish-card__text">You deserve people who notice the small things — who see not just the version of you that's doing well, but every version of you, and stay anyway.</p>
-        </div>
-
-        <div class="wish-card">
-          <span class="wish-card__icon">🌿</span>
-          <p class="wish-card__title">A year that's kind to you</p>
-          <p class="wish-card__text">May this next year give back at least as much as you put in — and on the days it doesn't, may you still find something worth holding on to.</p>
-        </div>
-
       </div>
+
+      <div class="orb-decoration orb-blue" style="width:500px;height:500px;top:30%;left:-10%;opacity:0.3;"></div>
     </section>
 
-    <!-- ── CONFESSION ── -->
-    <section class="confession" id="confession">
-      <div class="orb" style="width:500px;height:500px;background:rgba(124,77,255,0.12);top:0;right:-15%;"></div>
+    <!-- ─── GALLERY ───────────────────────────────────────── -->
+    <section class="gallery" id="gallery" data-scene="gallery">
+      <div class="section-number" aria-hidden="true">02</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            The person I look forward to seeing
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Every photo<br /><em style="font-style:italic;color:var(--clr-violet-soft);">is a memory</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            I keep every single one. The ordinary moments. The unplanned ones.
+            Especially the ones that remind me just how glad I am to know you.
+          </p>
+        </header>
 
-      <p class="section-label reveal">— section 02 —</p>
-      <div class="divider reveal"></div>
-      <h2 class="section-title reveal">
-        Things I never<br /><em>said out loud</em>
-      </h2>
+        <div class="gallery__grid" role="list">
 
-      <div class="letter-wrap reveal">
-        <div class="letter-paper">
-          <span class="letter-salutation">To you, on your birthday —</span>
+          <!-- ─── FOTO 1 ── ganti src dengan path foto kamu ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img1.jpeg" alt="foto 1" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">You carry this warmth that people are immediately drawn to. I think you don't even realize it.</span>
+                <span class="gallery__caption-tag">#birthday</span>
+              </div>
+            </div>
+          </div>
 
-          <div class="letter-body">
+          <!-- ─── FOTO 2 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img2.jpeg" alt="foto 2" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">There's something about you that makes every room feel a little lighter. I mean that sincerely.</span>
+                <span class="gallery__caption-tag">#truely</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 3 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img3.jpeg" alt="foto 3" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Your laugh — the kind that you don't plan for but find yourself smiling at long after.</span>
+                <span class="gallery__caption-tag">#favorite</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 4 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img4.jpeg" alt="foto 4" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">I notice the small things about you. The way you carry yourself. The quiet kindness you show without thinking twice.</span>
+                <span class="gallery__caption-tag">#noticed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 5 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img5.jpeg" alt="foto 5" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">On your birthday of all days — I hope you feel just how much light you actually bring into things.</span>
+                <span class="gallery__caption-tag">#happybday</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 6 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img6.jpeg" alt="foto 6" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">I think knowing you is genuinely one of the things I'm grateful for. And today felt like the right time to say it.</span>
+                <span class="gallery__caption-tag">#grateful</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:clamp(40px,6vw,72px);">
+          <p class="t-quote" data-reveal="scale" style="max-width:600px;margin:0 auto;color:var(--clr-white-40);">
+            "Not just a photo. A moment I wanted to hold onto."
+          </p>
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-pink" style="width:600px;height:600px;bottom:-10%;right:-10%;opacity:0.35;"></div>
+    </section>
+
+    <!-- ─── LOVE LETTER ───────────────────────────────────── -->
+    <section class="love-letter" id="love-letter" data-scene="love-letter">
+      <div class="section-number" aria-hidden="true">03</div>
+      <div class="letter__spotlight" aria-hidden="true"></div>
+
+      <div class="love-letter__inner">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            Written honestly, meant for today
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Something I've been<br /><em style="font-style:italic;color:var(--clr-pink-soft);">meaning to say</em>
+          </h2>
+        </header>
+
+        <div class="love-letter__paper glass-card">
+          <span class="letter__salutation">To you, on your birthday —</span>
+
+          <div class="letter__body">
             <p>
-              There are things I've wanted to say for a while now,
-              and I've found every excuse not to. But it feels wrong to let today pass
-              without being honest — even just a little.
+              I want you to know that I've liked you for a while now.
+              Not in a way I planned — it just kind of happened quietly,
+              <strong>and then all at once.</strong>
+              The kind of feeling that's hard to explain but impossible to ignore.
             </p>
 
             <p>
-              I notice you. More than I probably should.
-              The way you carry yourself in a room, the way you talk about things you care about —
-              you do it with this kind of <strong>quiet confidence</strong> that I've never quite seen in anyone else.
-              And it gets to me, every single time.
+              You're someone who genuinely listens. Who makes people feel like they matter.
+              Who finds beauty in things most people overlook.
+              That's <strong>not common</strong>. And it didn't go unnoticed — at least not by me.
             </p>
 
             <p>
-              I don't know exactly what this is. I'm not here to make things complicated
-              or put anything on you that you didn't ask for.
-              I just — I'd feel dishonest celebrating you today without telling you
-              that being around you genuinely <strong>makes things feel lighter.</strong>
+              I've thought about saying this more times than I can count.
+              But today is your birthday, and I figured —
+              <strong>if there's ever a right time, it's probably now.</strong>
+              So here it is, as honest as I know how to be.
             </p>
 
             <p>
-              You've made me want to be more thoughtful. More present.
-              More like someone worth knowing — and I don't think you realize
-              how much that matters, or how <strong>rare</strong> it is for one person to do that to another.
-            </p>
-
-            <p>
-              So this is me saying it, on the one day that feels right to say it:
-              I like you. Not in a way that asks anything of you.
-              Just — in the realest, most genuine way I know.
-              <strong>And I'm really glad you exist.</strong>
+              I don't know where this goes or what you'll think after reading this.
+              But I do know it's real. And you deserved to hear it at least once.
+              <strong>Happy birthday, Cantika. I really, genuinely like you.</strong>
             </p>
           </div>
 
-          <span class="letter-sign">— yours, somehow. ♡</span>
+          <span class="letter__sign">— someone who thinks you're worth it.</span>
         </div>
       </div>
+
+      <div class="orb-decoration orb-violet" style="width:700px;height:700px;top:-20%;left:-15%;opacity:0.25;"></div>
     </section>
 
-    <!-- ── FINALE ── -->
-    <section class="finale" id="finale">
-      <div class="orb" style="width:700px;height:700px;background:rgba(244,200,102,0.07);top:-20%;left:50%;transform:translateX(-50%);"></div>
+    <!-- ─── FINALE ────────────────────────────────────────── -->
+    <section class="finale" id="finale" data-scene="finale">
+      <div class="finale__bg-glow" aria-hidden="true"></div>
 
-      <span class="finale__heart">♡</span>
+      <div class="finale__inner">
+        <span class="finale__heart" aria-hidden="true">♡</span>
+        <h2 class="finale__quote t-hero glow-text">
+          Happy birthday,<br />hope this made<br /><em>you smile.</em>
+        </h2>
+        <p class="finale__sub t-label" style="margin-top:40px;">
+          Have the best day — you deserve every bit of it
+        </p>
 
-      <h2 class="finale__quote reveal">
-        Happy birthday,<br />to someone who<br /><em>deserves every good thing.</em>
-      </h2>
-
-      <p class="finale__sub reveal">— always, without exception.</p>
-
-      <a href="#hero" class="btn btn-primary reveal" id="begin-again">Begin Again ♡</a>
+        <div style="margin-top:60px;">
+          <a href="#hero" class="btn btn-primary pulse-glow" data-magnetic>
+            Read Again ♡
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>
 
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
   <footer>
-    made with too many feelings & too little sleep &nbsp;·&nbsp; Cantikaa. ♡
+    <p>made with honesty &amp; a little courage &nbsp;·&nbsp; Cantika. ♡</p>
   </footer>
 
-  <script>
-    // ── PRELOADER ──
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('preloader').classList.add('hidden');
-        launchConfetti();
-      }, 1800);
-    });
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
 
-    // ── STARS ──
-    const canvas = document.getElementById('stars-canvas');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
+  <!-- CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+  <!-- Core -->
+  <script src="js/core/config.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/core/app-controller.js"></script>
 
-    function createStars() {
-      stars = [];
-      for (let i = 0; i < 260; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.4 + 0.2,
-          alpha: Math.random(),
-          speed: Math.random() * 0.008 + 0.003,
-          phase: Math.random() * Math.PI * 2
-        });
-      }
-    }
+  <!-- Systems -->
+  <script src="js/systems/performance.js"></script>
+  <script src="js/systems/galaxy-background.js"></script>
+  <script src="js/systems/three-background.js"></script>
+  <script src="js/systems/preloader.js"></script>
+  <script src="js/systems/audio-system.js"></script>
 
-    function drawStars(t) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(s => {
-        const a = 0.3 + 0.6 * Math.abs(Math.sin(s.phase + t * s.speed));
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${a})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(drawStars);
-    }
+  <!-- Engine -->
+  <script src="js/engine/animation-engine.js"></script>
+  <script src="js/engine/scene-manager.js"></script>
+  <script src="js/engine/interaction-engine.js"></script>
 
-    resizeCanvas();
-    createStars();
-    requestAnimationFrame(drawStars);
-    window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+  <!-- Main -->
+  <script src="js/main/script.js"></script>
 
-    // ── CANDLES ──
-    const candleWrap = document.getElementById('candles');
-    for (let i = 0; i < 7; i++) {
-      candleWrap.innerHTML += `
-        <div class="candle">
-          <div class="candle__flame" style="animation-delay:${i*0.2}s"></div>
-          <div class="candle__body"></div>
-        </div>`;
-    }
-
-    // ── FLOATING PARTICLES ──
-    const particleColors = ['rgba(232,121,160,0.7)', 'rgba(124,77,255,0.7)', 'rgba(244,200,102,0.7)', 'rgba(255,107,138,0.5)'];
-    const particleWrap = document.getElementById('particles');
-    for (let i = 0; i < 22; i++) {
-      const el = document.createElement('div');
-      el.className = 'particle';
-      const size = Math.random() * 5 + 2;
-      el.style.cssText = `
-        width:${size}px;height:${size}px;
-        left:${Math.random()*100}%;
-        background:${particleColors[Math.floor(Math.random()*particleColors.length)]};
-        animation-duration:${Math.random()*12+10}s;
-        animation-delay:${Math.random()*8}s;
-        filter:blur(${size > 5 ? 1 : 0}px);
-      `;
-      particleWrap.appendChild(el);
-    }
-
-    // ── CONFETTI ──
-    function launchConfetti() {
-      const colors = ['#e879a0','#7c4dff','#f4c866','#ff6b8a','#fff','#a78bfa'];
-      const shapes = ['border-radius:50%','border-radius:2px','border-radius:0'];
-      for (let i = 0; i < 80; i++) {
-        setTimeout(() => {
-          const el = document.createElement('div');
-          el.className = 'confetti-piece';
-          const size = Math.random() * 10 + 5;
-          el.style.cssText = `
-            left:${Math.random()*100}%;
-            width:${size}px;height:${size * (Math.random()*1.5+0.5)}px;
-            background:${colors[Math.floor(Math.random()*colors.length)]};
-            ${shapes[Math.floor(Math.random()*shapes.length)]};
-            animation-duration:${Math.random()*2+2}s;
-            animation-delay:${Math.random()*0.5}s;
-          `;
-          document.body.appendChild(el);
-          setTimeout(() => el.remove(), 4000);
-        }, i * 30);
-      }
-    }
-
-    // ── SCROLL REVEAL ──
-    const revealEls = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => obs.observe(el));
-
-    // ── CONFETTI ON BEGIN AGAIN ──
-    document.getElementById('begin-again').addEventListener('click', launchConfetti);
-  </script>
 </body>
 </html>
